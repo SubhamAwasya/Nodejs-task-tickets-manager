@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+
+# dotenv environment variable file
+.env
+
+# build output
+/dist
+/build
+
+# IDEs and editors
+.vscode/
+.idea/
+
+
+
+
+
+
