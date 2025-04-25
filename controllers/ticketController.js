@@ -16,7 +16,7 @@ export const createTicket = async (req, res) => {
     res.status(201).json(ticket);
   } catch (err) {
     console.log("Error from tickets/create:", err);
-    res.status(500).json({ message: "Server error", error: err.message });
+    res.status(500).json({ error: "Internal Server error" });
   }
 };
 
@@ -27,7 +27,7 @@ export const getAllTickets = async (req, res) => {
     res.json(tickets);
   } catch (err) {
     console.log("Error from tickets/getAll:", err);
-    res.status(500).json({ message: "Server error", error: err.message });
+    res.status(500).json({ error: "Internal Server error" });
   }
 };
 
@@ -38,7 +38,7 @@ export const getMyTickets = async (req, res) => {
     res.json(tickets);
   } catch (err) {
     console.log("Error from tickets/getMy:", err);
-    res.status(500).json({ message: "Server error", error: err.message });
+    res.status(500).json({ error: "Internal Server error" });
   }
 };
 
@@ -59,7 +59,7 @@ export const getTicketById = async (req, res) => {
     res.json(ticket);
   } catch (err) {
     console.error("Error from getTicketById:", err);
-    res.status(500).json({ message: "Server error", error: err.message });
+    res.status(500).json({ error: "Internal Server error" });
   }
 };
 
@@ -88,7 +88,7 @@ export const updateTicket = async (req, res) => {
     res.json(updated);
   } catch (err) {
     console.error("Error from updateTicket:", err);
-    res.status(500).json({ message: "Server error", error: err.message });
+    res.status(500).json({ error: "Internal Server error" });
   }
 };
 
@@ -115,6 +115,6 @@ export const deleteTicket = async (req, res) => {
     res.json({ message: "Ticket deleted successfully" });
   } catch (err) {
     console.error("Error from deleteTicket:", err);
-    res.status(500).json({ message: "Server error", error: err.message });
+    res.status(500).json({ error: "Internal Server error" });
   }
 };

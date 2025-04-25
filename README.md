@@ -1,3 +1,7 @@
+## Node.js Ticket Manager
+
+A backend project to manage support tickets with role-based access control using Node.js, Express, MongoDB, and JWT.
+
 ## Setup Instructions
 
 ### 1. Clone the repository
@@ -28,15 +32,20 @@ JWT_SECRET=your_secret_key
 npm run dev
 ```
 
+## Testing
+
+Use tools like:
+• Postman
+• Insomnia
+
 ## API Endpoints
 
 ### Auth routes
 
-| **Method** | **Endpoint**         | **Description**      | **additional**                        |
-| ---------- | -------------------- | -------------------- | ------------------------------------- |
-| POST       | /auth/register       | Register a new user  |
-| POST       | /auth/login          | Login and get JWT    |
-| POST       | /auth/register/agent | Register a new agent | # new route not mentioned in the task |
+| **Method** | **Endpoint**   | **Description**     |
+| ---------- | -------------- | ------------------- |
+| POST       | /auth/register | Register a new user |
+| POST       | /auth/login    | Login and get JWT   |
 
 ### Tickets routes
 
@@ -51,8 +60,4 @@ npm run dev
 
 ---
 
-## Testing
-
-Use tools like:
-• Postman
-• Insomnia
+See [API Documentation](./API%20documentation.md) for full details

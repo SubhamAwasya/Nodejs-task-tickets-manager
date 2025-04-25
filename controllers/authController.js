@@ -43,7 +43,7 @@ export const register = async (req, res) => {
     res.status(201).json({ message: "User registered successfully" });
   } catch (err) {
     console.log("Error from auth/register:", err);
-    res.status(500).json({ message: "Server error", error: err.message });
+    res.status(500).json({ error: "Internal Server error" });
   }
 };
 
@@ -73,6 +73,6 @@ export const login = async (req, res) => {
     res.json({ user: safeUser, token });
   } catch (err) {
     console.log("Error from auth/login:", err);
-    res.status(500).json({ message: "Server error", error: err.message });
+    res.status(500).json({ error: "Internal Server error" });
   }
 };

@@ -1,3 +1,5 @@
+# I’ve added a `postman_routes_collections.json` file to help you easily test all API routes. Just import it into Postman to get started.
+
 # API Documentation
 
 ## Authentication
@@ -46,6 +48,11 @@ Logs in a user and returns a JWT token.
 
 ```json
 {
+  "user": {
+    "id": "_id_",
+    "name": "_name_",
+    "role": "_role_"
+  },
   "token": "your_jwt_token"
 }
 ```

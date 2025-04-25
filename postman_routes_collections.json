@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "2718c5cc-0a8c-454d-bc45-3d617c4bb85a",
+		"name": "Node.js Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38821730"
+	},
+	"item": [
+		{
+			"name": "Register user and agent",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "shubham awasya",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "a@a.new",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "agent",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login user and agent",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "new@new.new",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new tickets",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBjMGJiOGE4ZDZjODUxODUyMzY1MjEiLCJyb2xlIjoidXNlciIsImlhdCI6MTc0NTYxOTkwNiwiZXhwIjoxNzQ1NzA2MzA2fQ._MScXmOA-ItPjLF0CJEeUBrg9rArxOmcedyPc-4gsaM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "ticket 3",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "and one more",
+							"type": "text"
+						},
+						{
+							"key": "user",
+							"value": "680be0dc5c42750abd30376f",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/tickets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tickets"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "ticket 1",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "this is my first ticket",
+							"disabled": true
+						},
+						{
+							"key": "user",
+							"value": "680be0dc5c42750abd30376f",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all tickets ( only agent )",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBiZWZjODhhMjZhZjExOWRhYWZkYTEiLCJyb2xlIjoiYWdlbnQiLCJpYXQiOjE3NDU2MjA1NzgsImV4cCI6MTc0NTcwNjk3OH0.WGOb-RQaSbjQNnAKsJPmMfR8y2Hw4iAwWr2PE_lS17g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/tickets/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tickets",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user's own tickets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBjMGJiOGE4ZDZjODUxODUyMzY1MjEiLCJyb2xlIjoidXNlciIsImlhdCI6MTc0NTYyMDYzOCwiZXhwIjoxNzQ1NzA3MDM4fQ.ynGOaGym6u7eXh0MZx0nWIkxYwUp1E7jtMtltMci0pU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:5000/tickets/my",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tickets",
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get single ticket by ID",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBiZWZjODhhMjZhZjExOWRhYWZkYTEiLCJyb2xlIjoiYWdlbnQiLCJpYXQiOjE3NDU2MjA4NDEsImV4cCI6MTc0NTcwNzI0MX0.vA-zaLPF5zfccsqh4xtMtL0LGDSG_oQfSW6uVfJrl4Q",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/tickets/680bf30abd9c1975c96fcd20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tickets",
+						"680bf30abd9c1975c96fcd20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update ticket (owner or agent)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBiZWZjODhhMjZhZjExOWRhYWZkYTEiLCJyb2xlIjoiYWdlbnQiLCJpYXQiOjE3NDU2MjEyMjcsImV4cCI6MTc0NTcwNzYyN30.hjLcruHs2NtANnhX76nVlrlhuC6ay9v4Xw3_qUWQYE4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "another one sdfdsfsdfdsfdsf",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "# i have to use this ticket to test my application",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "close",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/tickets/680c0c54a8d6c85185236528",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tickets",
+						"680c0c54a8d6c85185236528"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete ticket (owner or agent)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBiZWZjODhhMjZhZjExOWRhYWZkYTEiLCJyb2xlIjoiYWdlbnQiLCJpYXQiOjE3NDU2MjEzOTIsImV4cCI6MTc0NTcwNzc5Mn0.YTl0MdXhPpffdZ0hVAfPHC4fovN6R0YQZsI_fSL15LM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/tickets/680bf30abd9c1975c96fcd20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tickets",
+						"680bf30abd9c1975c96fcd20"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
