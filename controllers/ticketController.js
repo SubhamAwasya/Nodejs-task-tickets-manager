@@ -15,6 +15,7 @@ export const createTicket = async (req, res) => {
 
     res.status(201).json(ticket);
   } catch (err) {
+    console.log("Error from tickets/create:", err);
     res.status(500).json({ message: "Server error", error: err.message });
   }
 };
@@ -25,6 +26,7 @@ export const getAllTickets = async (req, res) => {
     const tickets = await Ticket.find().populate("user", "name email");
     res.json(tickets);
   } catch (err) {
+    console.log("Error from tickets/getAll:", err);
     res.status(500).json({ message: "Server error", error: err.message });
   }
 };
@@ -35,6 +37,7 @@ export const getMyTickets = async (req, res) => {
     const tickets = await Ticket.find({ user: req.user.userId });
     res.json(tickets);
   } catch (err) {
+    console.log("Error from tickets/getMy:", err);
     res.status(500).json({ message: "Server error", error: err.message });
   }
 };
@@ -55,6 +58,7 @@ export const getTicketById = async (req, res) => {
 
     res.json(ticket);
   } catch (err) {
+    console.error("Error from getTicketById:", err);
     res.status(500).json({ message: "Server error", error: err.message });
   }
 };
